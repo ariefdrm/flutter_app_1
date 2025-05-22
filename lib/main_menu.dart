@@ -13,8 +13,10 @@ class MainMenu extends StatelessWidget {
       ),
       backgroundColor: Colors.white60,
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Wrap(
+          alignment: WrapAlignment.center,
+          runAlignment: WrapAlignment.center,
+          runSpacing: 10,
           spacing: 10,
           children: [
             ElevatedButton(
@@ -46,6 +48,24 @@ class MainMenu extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [Icon(Icons.add, size: 40), Text('Tambah Data')],
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue[300],
+                foregroundColor: Colors.white,
+                fixedSize: Size(160, 100),
+                shape: RoundedRectangleBorder(),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/list-products');
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.indeterminate_check_box_sharp, size: 40),
+                  Text('list-products'),
+                ],
               ),
             ),
           ],
