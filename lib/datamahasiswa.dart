@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class Datamahasiswa extends StatefulWidget {
-  const Datamahasiswa({Key? key}) : super(key: key);
+  const Datamahasiswa({super.key});
 
   @override
   _DatamahasiswaState createState() => _DatamahasiswaState();
@@ -43,8 +43,8 @@ class _DatamahasiswaState extends State<Datamahasiswa> {
             leading: CircleAvatar(
               backgroundImage: NetworkImage(listData[index]['foto']),
             ),
-            title: Text('nama: ' + listData[index]['nama']),
-            subtitle: Text('nim: ' + listData[index]['nim']),
+            title: Text('nama: ${listData[index]['nama']}'),
+            subtitle: Text('nim: ${listData[index]['nim']}'),
           );
         },
       ),
