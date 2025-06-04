@@ -20,12 +20,12 @@ class MainMenu extends StatelessWidget {
             runSpacing: 10,
             spacing: 10,
             children: [
-              ElevatedButton(
+              TextButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue[300],
                   foregroundColor: Colors.white,
                   fixedSize: const Size(160, 100),
-                  shape: RoundedRectangleBorder(),
+                  shape: LinearBorder(),
                 ),
                 onPressed: () {
                   Navigator.pushNamed(context, '/mahasiswa-list');
