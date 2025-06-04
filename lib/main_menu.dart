@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MainMenu extends StatelessWidget {
-  const MainMenu({Key? key}) : super(key: key);
+  const MainMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,6 @@ class MainMenu extends StatelessWidget {
         backgroundColor: Colors.blue[200],
         foregroundColor: Colors.black,
       ),
-      backgroundColor: Colors.white60,
       body: Center(
         child: Container(
           margin: const EdgeInsets.only(left: 20, right: 20),
@@ -25,7 +24,7 @@ class MainMenu extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue[300],
                   foregroundColor: Colors.white,
-                  fixedSize: Size(160, 100),
+                  fixedSize: const Size(160, 100),
                   shape: RoundedRectangleBorder(),
                 ),
                 onPressed: () {

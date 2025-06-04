@@ -3,27 +3,21 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 class Products extends StatefulWidget {
-  const Products({Key? key}) : super(key: key);
+  const Products({super.key});
 
   @override
-  _ProductsState createState() => _ProductsState();
+  State<Products> createState() => _ProductsState();
 }
 
 class _ProductsState extends State<Products> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
 
   List listData = [];
   void getData() async {
-    // var url2 = Uri.http("https://dummyjson.com/products");
-    // var response2 = await http.get(url2);
-    // var result2 = jsonDecode(response2.body);
-    // print(result2.toString());
-
     var url = 'https://dummyjson.com/products';
     var response = await http.get(Uri.parse(url));
     var responseJson = jsonDecode(response.body);

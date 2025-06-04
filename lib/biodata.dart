@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Biodata extends StatelessWidget {
-  const Biodata({Key? key}) : super(key: key);
+  const Biodata({super.key});
 
   @override
   Widget build(BuildContext context) {

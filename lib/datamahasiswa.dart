@@ -6,13 +6,12 @@ class Datamahasiswa extends StatefulWidget {
   const Datamahasiswa({super.key});
 
   @override
-  _DatamahasiswaState createState() => _DatamahasiswaState();
+  State<Datamahasiswa> createState() => _DatamahasiswaState();
 }
 
 class _DatamahasiswaState extends State<Datamahasiswa> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
