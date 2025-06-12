@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HalamanDariFileLainDart extends StatefulWidget {
-  const HalamanDariFileLainDart({Key? key}) : super(key: key);
+  const HalamanDariFileLainDart({super.key});
 
   @override
-  _HalamanDariFileLainDartState createState() =>
+  State<HalamanDariFileLainDart> createState() =>
       _HalamanDariFileLainDartState();
 }
 

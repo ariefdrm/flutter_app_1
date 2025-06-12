@@ -7,7 +7,7 @@ import 'package:project_flutter/products.dart';
 import 'package:project_flutter/users.dart';
 
 class Homepage extends StatelessWidget {
-  const Homepage({Key? key}) : super(key: key);
+  const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {

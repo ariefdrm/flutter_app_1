@@ -4,16 +4,15 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 class Products extends StatefulWidget {
-  const Products({Key? key}) : super(key: key);
+  const Products({super.key});
 
   @override
-  _ProductsState createState() => _ProductsState();
+  State<Products> createState() => _ProductsState();
 }
 
 class _ProductsState extends State<Products> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
