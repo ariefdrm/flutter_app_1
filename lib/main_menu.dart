@@ -68,6 +68,24 @@ class MainMenu extends StatelessWidget {
                 ],
               ),
             ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue[300],
+                foregroundColor: Colors.white,
+                fixedSize: Size(160, 100),
+                shape: RoundedRectangleBorder(),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/users');
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.indeterminate_check_box_sharp, size: 40),
+                  Text('users'),
+                ],
+              ),
+            ),
           ],
         ),
       ),

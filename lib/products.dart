@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
@@ -24,6 +25,7 @@ class _ProductsState extends State<Products> {
     // var result2 = jsonDecode(response2.body);
     // print(result2.toString());
 
+    EasyLoading.show();
     var url = 'https://dummyjson.com/products';
     var response = await http.get(Uri.parse(url));
     var responseJson = jsonDecode(response.body);
@@ -31,6 +33,7 @@ class _ProductsState extends State<Products> {
     setState(() {
       listData = responseJson['products'];
     });
+    EasyLoading.dismiss();
   }
 
   @override
