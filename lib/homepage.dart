@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:project_flutter/datamahasiswa.dart';
+import 'package:project_flutter/details_users.dart';
 import 'package:project_flutter/main_menu.dart';
 import 'package:project_flutter/products.dart';
+import 'package:project_flutter/users.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -13,7 +16,10 @@ class Homepage extends StatelessWidget {
       routes: {
         '/mahasiswa-list': (context) => const Datamahasiswa(),
         '/list-products': (context) => const Products(),
+        '/users': (context) => const Users(),
+        '/detail-users': (context) => const DetailsUsers(),
       },
+      builder: EasyLoading.init(),
       home: MainMenu(),
     );
   }

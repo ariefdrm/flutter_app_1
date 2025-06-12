@@ -1,30 +1,32 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class Datamahasiswa extends StatefulWidget {
-  const Datamahasiswa({super.key});
+class Users extends StatefulWidget {
+  const Users({Key? key}) : super(key: key);
 
   @override
-  State<Datamahasiswa> createState() => _DatamahasiswaState();
+  _UsersState createState() => _UsersState();
 }
 
-class _DatamahasiswaState extends State<Datamahasiswa> {
+class _UsersState extends State<Users> {
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
     getData();
   }
 
   List listData = [];
   void getData() async {
-    var url = Uri.parse('https://belajar-api.unama.ac.id/api/mahasiswa/');
+    var url = Uri.parse('https://dummyjson.com/users');
 
     var response = await http.get(url);
     var responseJson = jsonDecode(response.body);
 
     setState(() {
-      listData = responseJson['data'];
+      listData = responseJson['users'];
     });
   }
 
@@ -32,7 +34,7 @@ class _DatamahasiswaState extends State<Datamahasiswa> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('data mahasiswa'),
+        title: Text('List Users'),
         backgroundColor: Colors.blue[200],
         foregroundColor: Colors.black,
       ),
@@ -40,11 +42,14 @@ class _DatamahasiswaState extends State<Datamahasiswa> {
         itemCount: listData.length,
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(listData[index]['foto']),
-            ),
-            title: Text('nama: ${listData[index]['nama']}'),
-            subtitle: Text('nim: ${listData[index]['nim']}'),
+            onTap: () {
+              Navigator.pushNamed(context, '/detail-users');
+            },
+            // leading: CircleAvatar(
+            //   backgroundImage: NetworkImage(listData[index]['foto']),
+            // ),
+            title: Text('nama: ' + listData[index]['firstName']),
+            subtitle: Text('lastname: ' + listData[index]['lastName']),
           );
         },
       ),
