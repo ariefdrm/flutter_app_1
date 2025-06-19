@@ -4,6 +4,7 @@ import 'package:project_flutter/datamahasiswa.dart';
 import 'package:project_flutter/details_users.dart';
 import 'package:project_flutter/main_menu.dart';
 import 'package:project_flutter/products.dart';
+import 'package:project_flutter/tambah_data_mahasiswa.dart';
 import 'package:project_flutter/users.dart';
 
 class Homepage extends StatelessWidget {
@@ -15,6 +16,7 @@ class Homepage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/mahasiswa-list': (context) => const Datamahasiswa(),
+        '/tambah-data-mahasiswa': (context) => const TambahDataMahasiswa(),
         '/list-products': (context) => const Products(),
         '/users': (context) => const Users(),
         '/detail-users': (context) => const DetailsUsers(),
