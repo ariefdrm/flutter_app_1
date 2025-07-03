@@ -1,16 +1,18 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 
-class TambahDataMahasiswa extends StatefulWidget {
-  const TambahDataMahasiswa({super.key});
+class EditMahasiswa extends StatefulWidget {
+  const EditMahasiswa({Key? key}) : super(key: key);
 
   @override
-  State<TambahDataMahasiswa> createState() => _TambahDataMahasiswaState();
+  _EditMahasiswaState createState() => _EditMahasiswaState();
 }
 
-class _TambahDataMahasiswaState extends State<TambahDataMahasiswa> {
+class _EditMahasiswaState extends State<EditMahasiswa> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   final TextEditingController _namaController = TextEditingController();
   final TextEditingController _nimController = TextEditingController();
@@ -21,8 +23,15 @@ class _TambahDataMahasiswaState extends State<TambahDataMahasiswa> {
 
   @override
   Widget build(BuildContext context) {
+    final dataMhs = ModalRoute.of(context)!.settings.arguments as Map;
+
+    _namaController.text = dataMhs['nama'];
+    _nimController.text = dataMhs['nim'];
+    _tanggalLahirController.text = dataMhs['tanggal_lahir'];
+    _programStudiController.text = dataMhs['program_studi'];
+
     return Scaffold(
-      appBar: AppBar(title: Text('tambah data mahasiswa')),
+      appBar: AppBar(title: Text('Edit data mahasiswa')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -104,7 +113,7 @@ class _TambahDataMahasiswaState extends State<TambahDataMahasiswa> {
                     EasyLoading.show();
 
                     var url = Uri.parse(
-                      'https://belajar-api.unama.ac.id/api/mahasiswa',
+                      'https://belajar-api.unama.ac.id/api/mahasiswa/${dataMhs['id']}',
                     );
 
                     var data = {
@@ -114,7 +123,7 @@ class _TambahDataMahasiswaState extends State<TambahDataMahasiswa> {
                       'program_studi': _programStudiController.text,
                     };
 
-                    var response = await http.post(
+                    var response = await http.put(
                       url,
                       body: data,
                       headers: {'Accepts': 'application/json'},
@@ -122,10 +131,15 @@ class _TambahDataMahasiswaState extends State<TambahDataMahasiswa> {
 
                     EasyLoading.dismiss();
 
-                    if (response.statusCode == 201) {
-                      EasyLoading.showSuccess('Data berhasil disimpan');
+                    if (response.statusCode == 200) {
+                      EasyLoading.showSuccess('Data berhasil diupdate');
                       // Navigator.of(context).pushNamed('/mahasiswa-list');
-                      Navigator.pop(context);
+                      // Navigator.pop(context);
+                    } else {
+                      var responseJson = jsonDecode(response.body);
+                      EasyLoading.showError(
+                        'Oops ... ${responseJson['message']}',
+                      );
                     }
                   }
                 },
