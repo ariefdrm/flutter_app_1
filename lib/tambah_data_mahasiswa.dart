@@ -65,7 +65,6 @@ class _TambahDataMahasiswaState extends State<TambahDataMahasiswa> {
                     child: Text('Teknik Informatika'),
                   ),
                 ],
-
                 onChanged: (value) {
                   setState(() {
                     _programStudiController.text = value.toString();
@@ -89,7 +88,6 @@ class _TambahDataMahasiswaState extends State<TambahDataMahasiswa> {
                     firstDate: DateTime(1990),
                     lastDate: DateTime(2030),
                   );
-
                   if (pickedDate != null) {
                     _tanggalLahirController.text = DateFormat(
                       'yyyy-mm-dd',
@@ -102,26 +100,21 @@ class _TambahDataMahasiswaState extends State<TambahDataMahasiswa> {
                 onPressed: () async {
                   if (_formkey.currentState!.validate()) {
                     EasyLoading.show();
-
                     var url = Uri.parse(
                       'https://belajar-api.unama.ac.id/api/mahasiswa',
                     );
-
                     var data = {
                       'nama': _namaController.text,
                       'nim': _nimController.text,
                       'tanggal_lahir': _tanggalLahirController.text,
                       'program_studi': _programStudiController.text,
                     };
-
                     var response = await http.post(
                       url,
                       body: data,
                       headers: {'Accepts': 'application/json'},
                     );
-
                     EasyLoading.dismiss();
-
                     if (response.statusCode == 201) {
                       EasyLoading.showSuccess('Data berhasil disimpan');
                       // Navigator.of(context).pushNamed('/mahasiswa-list');
