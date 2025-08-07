@@ -4,7 +4,7 @@ class DetailsUsers extends StatefulWidget {
   const DetailsUsers({Key? key}) : super(key: key);
 
   @override
-  _DetailsUsersState createState() => _DetailsUsersState();
+  State<DetailsUsers> createState() => _DetailsUsersState();
 }
 
 class _DetailsUsersState extends State<DetailsUsers> {

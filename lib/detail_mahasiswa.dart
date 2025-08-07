@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class DetailMahasiswa extends StatefulWidget {
-  const DetailMahasiswa({Key? key}) : super(key: key);
+  const DetailMahasiswa({super.key});
 
   @override
-  _DetailMahasiswaState createState() => _DetailMahasiswaState();
+  State<DetailMahasiswa> createState() => _DetailMahasiswaState();
 }
 
 class _DetailMahasiswaState extends State<DetailMahasiswa> {
