@@ -6,10 +6,10 @@ import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 
 class EditMahasiswa extends StatefulWidget {
-  const EditMahasiswa({Key? key}) : super(key: key);
+  const EditMahasiswa({super.key});
 
   @override
-  _EditMahasiswaState createState() => _EditMahasiswaState();
+  State<EditMahasiswa> createState() => _EditMahasiswaState();
 }
 
 class _EditMahasiswaState extends State<EditMahasiswa> {
